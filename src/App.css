@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap");
+
+:root {
+  /* ---------- COLORS ---------- */
+  --first-color: hsl(271, 76%, 53%);
+  --title-color: hsl(0, 0%, 40%);
+  --text-color: hsl(0, 0%, 50%);
+  --body-color: hsl(0, 0%, 100%);
+  --container-color: hsl(0, 0%, 93%);
+  --border-color: hsl(0, 0%, 87%);
+  --text-white: #fff;
+
+  /* ---------- FONTS ---------- */
+  --body-font: "Open Sans", sans-serif;
+  --second-font: "Poppins", sans-serif;
+
+  /* ---------- TYPOGRAPHY ---------- */
+  --big-font-size: 56px;
+  --h1-font-size: 50px;
+  --h2-font-size: 32px;
+  --h3-font-size: 27px;
+  --large-font-size: 18px;
+  --normal-font-size: 16px;
+  --small-font-size: 15px;
+  --smaller-font-size: 14px;
+  --tiny-font-size: 12px;
+
+  /* ---------- WEIGHTS ---------- */
+  --weight-400: 400;
+  --weight-500: 500;
+  --weight-600: 600;
+  --weight-700: 700;
+  --weight-800: 800;
+}
+
+.dark-theme {
+  --title-color: hsl(0, 0%, 100%);
+  --text-color: hsl(0, 0%, 80%);
+  --body-color: hsl(0, 0%, 7%);
+  --container-color: hsl(0, 1%, 17%);
+  --border-color: hsl(0, 0%, 15%);
+}
+
+/* =========================================
+   BASE STYLES
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+textarea {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--weight-500);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--weight-700);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* =========================================
+   REUSABLE CLASSES
+========================================= */
+.container {
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 15px;
+  z-index: 1;
+}
+
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+.section {
+  padding-block: 70px;
+  z-index: 1;
+}
+
+.section__title {
+  font-size: var(--big-font-size);
+  font-weight: var(--weight-800);
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section__title span {
+  color: var(--first-color);
+}
+
+.button {
+  display: inline-block;
+  color: var(--title-color);
+  border: 1px solid var(--first-color);
+  padding: 15px 70px 15px 35px;
+  border-radius: 35px;
+  font-family: var(--second-font);
+  font-size: var(--small-font-size);
+  font-weight: var(--weight-500);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease-in-out;
+}
+
+.button:hover {
+  color: var(--text-white);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--first-color);
+  transform: translateX(100%);
+  z-index: -1;
+  transition: all 0.3s ease-out;
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.button__icon {
+  background-color: var(--first-color);
+  position: absolute;
+  inset-block: -2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  width: 55px;
+  border-radius: 50%;
+  color: var(--text-white);
+  font-size: var(--large-font-size);
+  text-align: center;
+  line-height: 60px;
+}
+
+/* ---------- Tablets (≤ 1024px) ---------- */
+@media (max-width: 1024px) {
+  .section__title {
+    font-size: 46px;
+  }
+
+  .container {
+    max-width: 90%;
+  }
+}
+
+/* ---------- Large Phones (≤ 768px) ---------- */
+@media (max-width: 768px) {
+  .section {
+    padding-block: 50px;
+  }
+
+  .section__title {
+    font-size: 36px;
+    margin-bottom: 50px;
+  }
+
+  .grid {
+    gap: 20px;
+  }
+
+  .button {
+    padding: 12px 55px 10px 30px;
+    font-size: var(--smaller-font-size);
+  }
+
+  .button__icon {
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+}
+
+/* ---------- Small Phones (≤ 480px) ---------- */
+@media (max-width: 480px) {
+  :root {
+    --big-font-size: 38px;
+    --h1-font-size: 32px;
+    --h2-font-size: 24px;
+    --normal-font-size: 14px;
+    --small-font-size: 13px;
+    --smaller-font-size: 12px;
+  }
+
+  .section {
+    padding-block: 40px;
+  }
+
+  .section__title {
+    margin-bottom: 40px;
+  }
+
+  .button {
+    width: 170px;
+    padding: 12px 45px 10px 25px;
+  }
+
+  .button__icon {
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- Extra Small Phones (≤ 320px) ---------- */
+@media (max-width: 320px) {
+  :root {
+    --big-font-size: 30px;
+    --h1-font-size: 26px;
+    --h2-font-size: 20px;
+    --normal-font-size: 13px;
+    --small-font-size: 12px;
+  }
+
+  .container {
+    padding-inline: 10px;
+  }
+
+  .section__title {
+    margin-bottom: 30px;
+  }
+
+  .button {
+    padding: 7px 37px 7px 20px;
+    font-size: 12px;
+    width: 150px;
+  }
+
+  .button__icon {
+    width: 36px;
+    height: 36px;
+    line-height: 32px;
+    font-size: 12px;
+  }
+}
