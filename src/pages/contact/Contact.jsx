@@ -29,7 +29,10 @@ function Contact() {
   async function submitHandler(e) {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8000/send-email", message);
+      const res = await axios.post(
+        "https://portfolio-backend-gcj5.onrender.com/send-email",
+        message,
+      );
       toast.success(res.data.msg);
 
       setMessage({
