@@ -34,6 +34,7 @@ function Contact() {
         message,
       );
       toast.success(res.data.msg);
+      console.log(res);
 
       setMessage({
         name: "",
