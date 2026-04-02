@@ -128,19 +128,19 @@ export const stats = [
 
   {
     id: 2,
-    no: "27+",
+    no: "17+",
     title: "Completed <br /> Projects",
   },
 
   {
     id: 3,
-    no: "41+",
+    no: "15+",
     title: "Happy <br /> Customers",
   },
 
   {
     id: 4,
-    no: "13+",
+    no: "3+",
     title: " Awards <br /> Won",
   },
 ];
